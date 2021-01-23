@@ -1,32 +1,31 @@
 import Vue from 'vue'
 import App from './App.vue'
-import Router from 'vue-router'
-
-import Dashboard from '@/components/Dashboard'
-import DashboardHome from '@/pages/Home'
+import router from './router'
 
 import store from './store'
 
-import '@/assets/css/tailwind.css'
+import PrimeVue from 'primevue/config';
+import Vuelidate from 'vuelidate'
+import VueSweetalert2 from 'vue-sweetalert2';
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
+import '@/assets/css/tailwind.css'
+import 'sweetalert2/dist/sweetalert2.min.css';
+
+import "primevue/resources/themes/saga-blue/theme.css"; //theme
+import "primevue/resources/primevue.min.css"; //core css
+import "primeicons/primeicons.css"; //icons
+
+Vue.use(PrimeVue);
+Vue.use(Vuelidate)
+Vue.use(VueSweetalert2);
+Vue.use(VueAxios, axios)
 
 Vue.config.productionTip = false
 
-Vue.use(Router)
-
-const routes = [
-  { path: '/', redirect: { name: 'DashboardHome' } },
-  { path: '/dashboard', component: Dashboard, children: [
-      { path: '/', redirect: { name: 'DashboardHome' } },
-      { path: 'home', name: 'DashboardHome', component: DashboardHome }
-    ]
-  }
-]
-
-const router = new Router({
-  mode: 'history',
-  routes
-})
+let back = window.location.host == 'localhost:8080' ? 'http://localhost:8000/api/' : 'https://api-libra.herokuapp.com/api/';
+axios.defaults.baseURL= back;
 
 new Vue({
   render: h => h(App),

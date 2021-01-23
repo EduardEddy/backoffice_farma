@@ -1,9 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import UserActiveNameSpaced from '../modules/UserActive'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+    modules:{
+        UserActiveNameSpaced
+    },
     state: {
         sideBarOpen: false
     },
