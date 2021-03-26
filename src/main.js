@@ -10,6 +10,7 @@ import VueSweetalert2 from 'vue-sweetalert2';
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
+
 import '@/assets/css/tailwind.css'
 import 'sweetalert2/dist/sweetalert2.min.css';
 
@@ -26,6 +27,7 @@ Vue.config.productionTip = false
 
 let back = window.location.host == 'localhost:8080' ? 'http://localhost:8000/api/' : 'https://api-libra.herokuapp.com/api/';
 axios.defaults.baseURL= back;
+
 
 new Vue({
   render: h => h(App),

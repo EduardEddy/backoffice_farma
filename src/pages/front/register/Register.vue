@@ -13,7 +13,7 @@
                     </p>
                     <div class="mx-10">
                         <div class="grid sm:grid-cols-3">
-                            <label for="" class="text-right text-2xl pr-4" style="vertical-align: bottom;">
+                            <label for="name" class="text-right text-2xl pr-4" style="vertical-align: bottom;">
                                 Nombre: &nbsp;
                             </label>
                             <div class="mb-4 col-span-2">

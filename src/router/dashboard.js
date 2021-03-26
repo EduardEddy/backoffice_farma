@@ -3,7 +3,8 @@ import Router from 'vue-router'
 
 import Dashboard from '@/pages/backoffice/dashboard/Dashboard.vue'
 import StorePage from "@/pages/backoffice/store/Store.vue";
-import Step1 from '@/pages/backoffice/store/form_step/step1.vue'
+import SellerPage from '@/pages/backoffice/seller/Seller.vue'
+import ProductPage from '@/pages/backoffice/products/Product.vue'
 
 Vue.use(Router)
 
@@ -19,9 +20,14 @@ const routes = [
         component:StorePage,
         meta:{ requiresAuth:true, manager:true }
     },{
-        path:'/step1',
-        name:'step1',
-        component:Step1,
+        path:'/seller',
+        name:'seller',
+        component:SellerPage,
+        meta:{ requiresAuth:true, manager:true }
+    },{
+        path:'/products',
+        name:'product',
+        component:ProductPage,
         meta:{ requiresAuth:true, manager:true }
     }
 ]

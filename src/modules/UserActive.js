@@ -12,6 +12,7 @@ export default {
             profile: null,
             token: null,
             type_identification: null,
+            store:{}
         }
     },
     mutations:{
@@ -27,7 +28,7 @@ export default {
             state.user.profile= payload.profile,
             state.user.token= payload.token,
             state.user.type_identification= payload.type_identification
-            
+            state.user.store = payload.store
         }
     },
     actions:{

@@ -3,7 +3,6 @@
         <navbar />
         <div style="min-height: 53.8vh">
             <div class="grid sm:grid-cols-2 pt-10 mt-10">
-                
                 <div class="pr-5 pt-4 border-r-4 md-auto">
                     <img src="@/assets/images/front/freelancer.svg" width="550" alt="" style="float: right">
                 </div>
@@ -22,7 +21,7 @@
                                     type="text"
                                     autofocus
                                     v-model="$v.email.$model"
-                                >    
+                                >
                                 <div v-if="$v.email.$error" class="text-red-500 text-1xl">
                                     <span v-if="!$v.email.required">Este campo es requerido </span>
                                     <span v-if="!$v.email.email">El email ingresado es invalido </span>
