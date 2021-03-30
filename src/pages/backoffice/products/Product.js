@@ -3,6 +3,7 @@ import { mapState } from 'vuex'
 import Sidebar from '@/components/dashboard/sidebar/Sidebar.vue'
 import Navbar from '@/components/dashboard/navbar/Navbar.vue'
 import Footer from '@/components/dashboard/footer/Footer.vue'
+
 import { required } from 'vuelidate/lib/validators'
 import InputText from 'primevue/inputtext';
 import FileUpload from 'primevue/fileupload';

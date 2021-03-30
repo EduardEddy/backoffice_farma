@@ -6,11 +6,10 @@ export default {
     name:'massiveProducts',
     data() {
         return {
-            display:true,
+            display:false,
             file:"",
-            err_image:null,
+            err_file:null,
             img_loading:false,
-
         }
     },
     props:{
@@ -27,7 +26,7 @@ export default {
             let formData = new FormData();
             formData.append('file', this.file);
             formData.append('store', this.user.store.id);
-            this.axios.post( '/carga/masiva',formData,
+            this.axios.post( '/products/massive-loads',formData,
             {
                 headers: {
                     'Content-Type': 'multipart/form-data',
@@ -36,6 +35,8 @@ export default {
             })
             .then( () => {
                 this.img_loading = false
+                this.file = ""
+                this.display = false
                 this.$swal({
                     icon:'success',
                     title: 'Exito',
@@ -43,13 +44,28 @@ export default {
                 })
             })
             .catch( err => {
-                this.img_loading = false
-                console.log( err )
-                this.$swal({
-                    icon:'error',
-                    title: 'Espera',
-                    text:'Algo salio mal'
-                })
+                this.img_loading=false
+                if( err.response ){
+                    switch (err.response.status) {
+                        case 422:
+                            var data = err.response.data.errors
+                            this.err_file= data.file ? data.file[0] : null
+                            setTimeout(() => {
+                                this.clearError()
+                            }, 5000);
+                            break;
+                    
+                        default:
+                            break;
+                    }
+                }else{
+                    console.log( err )
+                    this.$swal({
+                        icon:'warning',
+                        title: 'Algo salio mal',
+                        text:'Contacta al administrador'
+                    })
+                }
             })
         },     
         handleFileUpload(){

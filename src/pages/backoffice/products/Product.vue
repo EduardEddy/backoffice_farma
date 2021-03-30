@@ -19,8 +19,6 @@
                         </ol>
                     </nav>
                     <div class="container mx-auto mt-5 pt-3 mb-5 bg-white rounded-lg border-2">
-                        
-                        
                         <h3 class="text-center pt-5 text-4xl">
                             Crear Producto
                             <Button label="Carga Masiva" icon="pi pi-external-link" @click="openDialog"/>

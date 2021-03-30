@@ -11,7 +11,7 @@
                             </label>
                             <div class="mb-4 col-span-3">
                                 <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
-                                <small class="text-red-500">{{ err_image }}</small>
+                                <small class="text-red-500">{{ err_file }}</small>
                             </div>
                         </div>
                     </form>
